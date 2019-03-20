@@ -3,8 +3,13 @@ const Schema = mongoose.Schema
 
 const Stuff = new Schema({
     name: String,
+    stuffId:  Number,
     description: String,
-    author: Number,
+    author:{
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        myStuff:[]
+    },
     likers:[],
     category:[]
 })

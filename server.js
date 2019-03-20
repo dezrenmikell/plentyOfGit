@@ -22,6 +22,7 @@ const app = express()
 const methodOverride = require('method-override')
 const logger = require('morgan')
 const routes = require('./routes/index.js')
+const userController = require('./controllers/userController')
 
 app.set('view engine', 'hbs')
 app.use(express.static(__dirname + '/public')); // VERY IMPORTANT!! Make sure to add a '/'

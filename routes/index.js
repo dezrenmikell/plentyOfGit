@@ -4,32 +4,32 @@ const appController = require('../controllers/appController')
 const userController = require('../controllers/userController')
 const stuffController = require('../controllers/stuffController')
 
-router.get('/', appController.index)
+router.get('/home', appController.index)
 
 // User routes
-router.get('/users', userController.index)
+router.get('/', userController.index)
 
-router.get('/users/new', userController.new)
+router.get('/new', userController.new)
 
-router.post('/users', userController.create)
+router.post('/', userController.create)
 
-router.get('/users/:userId', userController.show)
+router.get('/:userId', userController.show)
 
-router.delete('/users/:userId', userController.delete)
+router.delete('/:userId', userController.delete)
 
 //Planner routes
-router.get('/users/:userId/stuff', stuffController.index)
+router.get('/:userId/stuff', stuffController.index)
 
-router.get('/users/:userId/stuff/new', stuffController.new)
+router.get('/:userId/stuff/new', stuffController.new)
 
-router.post('/users/:userId/stuff', stuffController.create)
+router.post('/:userId/stuff', stuffController.create)
 
-router.get('/users/:userId/stuff/:stuffId', stuffController.show)
+router.get('/:userId/stuff/:stuffId', stuffController.show)
 
-router.get('/users/:userId/stuff/:stuffId/edit', stuffController.edit)
+router.get('/:userId/stuff/:stuffId/edit', stuffController.edit)
 
-router.put('/users/:userId/stuff/:stuffId', stuffController.update)
+router.put('/:userId/stuff/:stuffId', stuffController.update)
 
-router.delete('/users/:userId/stuff/:stuffId', stuffController.delete)
+router.delete('/:userId/stuff/:stuffId', stuffController.delete)
 
 module.exports=router

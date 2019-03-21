@@ -5,7 +5,7 @@ class HomePage extends Component {
     render() {
         return (
             <div>
-                <h1> Welcome to Plenty of Git</h1>
+                <h1> Welcome to Plenty of Git </h1>
             </div>
         );
     }

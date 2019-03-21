@@ -6,6 +6,7 @@ class HomePage extends Component {
         return (
             <div>
                 <h1> Welcome to Plenty of Git </h1>
+                <Link to="/api/users">Local API</Link>
             </div>
         );
     }

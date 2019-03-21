@@ -12,7 +12,10 @@ User.deleteMany()
 //create first User(planner)    
     .then(()=>{
         return User.create({
-            name: "B-Roc(k)",
+            name: "Tree",
+            userName: "tree_login",
+            password: "treepassword"
+
         })
     })
 //create events for the first user ()   

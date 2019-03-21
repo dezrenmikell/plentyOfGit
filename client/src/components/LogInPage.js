@@ -57,7 +57,7 @@ class LogInPage extends Component {
                     this.state.users.map((user) => {
                         return (
                             <Link
-                                to={`/users/${user._id}`}
+                                to={`/user/${user._id}`}
                                 key={user._id}
                             >
                             {user.userName}

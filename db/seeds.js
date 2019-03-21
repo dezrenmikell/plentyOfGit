@@ -1,3 +1,7 @@
+require('dotenv').config()
+const mongoose = require('mongoose')
+mongoose.connect(process.env.MONGODB_URI)
+
 const User = require('../models/User')
 const Stuff = require('../models/Stuff')
 

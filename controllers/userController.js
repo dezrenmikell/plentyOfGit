@@ -1,55 +1,79 @@
-const express =require('express')
-const router=express.Router()
-const User = require('../models/User');
-const  Stuff  = require('../models/Stuff');
+const express = require('express')
+const User = require('../models/User.js')
+const Stuff = require('../models/Stuff')
+const router = express.Router()
 
-const userController = {
-    index: (req, res) => {
-        // Show all users
-            User.find()
-            .then(stuff=>{
-              res.send(stuff)  
-            })
-            .catch(err=>console.log("error: "+err))
+router.get('/', (req, res) => {
+    User
+    .find()
+    .then(users => {
+        res.json(users)
+    })
+    .catch(err => console.log(err))
+})
 
-        //         res.render('users/index', {stuffs})
-            
-    },
-    new: (req, res) => {
-        // res.render('users/new')
-        res.send('new user')
-    },
-    create: (req, res) => {
-        User.create(req.body).then(user => {
-        //     res.render('planner/index')
-        res.send('create'+user)
+router.post('/', (req, res) => {
+    const newUser = new User(req.body.user)
+
+    newUser
+        .save()
+        .then((user) => {
+            res.json(user)
         })
-    },
-    show: (req, res) => {
-        User.findById(req.params.userId)
-            .then(user => {
-                // res.render('users/show', {user})
-                res.send(user)
-            })
-    },
-    edit:(req,res)=>{
-        User.findById(req.params.userId).then(user=>{
-            // red.render('users/edit', {user})
-            res.send(user)
+        .catch((err) => console.log(err))
+})
+
+// /api/users/:userId
+router.get('/:userId', (req, res) => {
+    User
+    .findById(req.params.userId)
+    .then(user => {
+        user.myStuff= user.myStuff.reverse()
+        res.json(user)
+    })
+    .catch((err) => console.log(err))
+})
+
+router.post('/:userId/stuff', (req, res) => {
+    User.findById(req.params.userId).then(user => {
+        const newStuff = new Stuff({})
+        user.myStuff.push(newStuff)
+
+        user.save().then((user) => {
+            res.json(newStuff)
         })
-    },
-    update:(req,res)=>{
-        User.findByIdAndUpdate(req.params.userId, req.body, {new:true})
-        .then(()=>{
-            res.send("update page")
-            // res.redirct(`/users/${req.params.userId}`)
+    })
+})
+
+router.delete('/:userId/stuff/:stuffId', (req, res) => {
+    User.findById(req.params.userId).then(user => {
+        const filteredStuff = user.myStuff.filter(stuff => stuff._id.toString() !== req.params.stuffId)
+
+        user.myStuff = filteredStuff
+
+        user.save().then(user => {
+            user.myStuff = user.myStuff.reverse()
+            res.json(user.myStuff)
         })
-    },
-    delete: (req, res) => {
-        User.findByIdAndDelete(req.params.userId).then(() => 
-            res.redirect('/'))
+    })
+})
+
+router.patch('/:userId/stuff/:stuffId', (req, res) => {
+    User.findById(req.params.userId).then(user => {
+        const update = req.body.stuff
+        const stuff = user.myStuff.id(req.params.stuffId)
+        if (update.name) {
+            stuff.name = update.name
         }
-    }
+        if (update.description) {
+            stuff.description = update.description
+        }
 
+        user.save().then((user) => {
+            user.myStuff = user.myStuff.reverse()
+            res.json(user)
+        })
+    })
+})
 
-module.exports = userController
+module.exports = router

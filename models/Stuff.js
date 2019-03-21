@@ -2,9 +2,15 @@ const mongoose = require('../db/connection');
 const Schema = mongoose.Schema
 
 const Stuff = new Schema({
-    name: String,
+    name: {
+        type: String,
+        default: 'New Name'
+    },
     stuffId:  Number,
-    description: String,
+    description: {
+        type: String,
+        default: 'New Description'
+    },
     author:{
         type: Schema.Types.ObjectId,
         ref: "User",

@@ -4,6 +4,8 @@ const Schema = mongoose.Schema
 const User = new Schema({
     
     name: String,
+    userName: String,
+    password: String,
     myStuff:[
         {
             type: Schema.Types.ObjectId,

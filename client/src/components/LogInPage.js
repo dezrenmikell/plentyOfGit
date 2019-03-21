@@ -44,7 +44,7 @@ class LogInPage extends Component {
     
     render() {
         if(this.state.redirectToHome === true) {
-            return (<Redirect to={`/user/${this.state.createdUser._id}`} />)
+            return (<Redirect to={`/users/${this.state.createdUser._id}`} />)
         }
 
         return (
@@ -57,7 +57,7 @@ class LogInPage extends Component {
                     this.state.users.map((user) => {
                         return (
                             <Link
-                                to={`/user/${user._id}`}
+                                to={`/users/${user._id}`}
                                 key={user._id}
                             >
                             {user.userName}

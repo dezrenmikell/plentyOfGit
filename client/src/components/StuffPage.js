@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 // import styled from 'styled-components'
 import Stuff from './Stuff'
+import {Link} from 'react-router-dom'
 
 class StuffPage extends Component{
     state={
@@ -67,6 +68,8 @@ class StuffPage extends Component{
     render(){
         return (
             <div>
+                <Link to="/">Home</Link>
+                <Link to='/api/users'>Local API</Link>
                 <h1>Stuff Page</h1>
                 <button
                     onClick={this.createStuff}

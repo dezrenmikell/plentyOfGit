@@ -47,7 +47,7 @@ class StuffPage extends Component{
 
     handleChange=(stuff, event)=>{
         console.log('HANDLE CHANGE')
-        const newStuff = [this.state.myStuff]
+        const newStuff = [...this.state.myStuff]
 
         const myStuff = newStuff.map((savedStuff)=>{
             if(savedStuff._id===stuff._id){

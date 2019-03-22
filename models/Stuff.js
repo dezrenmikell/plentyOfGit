@@ -2,7 +2,7 @@ const mongoose = require('../db/connection');
 const Schema = mongoose.Schema
 
 const Stuff = new Schema({
-    name: {
+    title: {
         type: String,
         default: 'New Name'
     },
@@ -11,10 +11,9 @@ const Stuff = new Schema({
         type: String,
         default: 'New Description'
     },
-    author:{
-        type: Schema.Types.ObjectId,
-        ref: "User",
-        myStuff:[]
+    created:{
+        type: Date,
+        default: new Date()
     },
     likers:[],
     category:[]

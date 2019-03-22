@@ -12,7 +12,7 @@ User.deleteMany()
 //create first User(planner)    
     .then(()=>{
         return User.create({
-            name: "Tree",
+            title: "Tree",
             userName: "tree_login",
             password: "treepassword"
 
@@ -21,14 +21,14 @@ User.deleteMany()
 //create events for the first user ()   
     .then(tree=>{
         const stuff1Promise = Stuff.create({
-            name: "Paint and Sip",
+            title: "Paint and Sip",
             description: "An Interactive Paint and Sip event with Poetry",
             author: User._id
         }).then(stuff => {
             tree.myStuff.push(stuff)
          })
         const stuff2Promise = Stuff.create({
-            name: 'Day Party',
+            title: 'Day Party',
             description: 'A party to promote Poetry Pins',
             author: User._id
         }).then(stuff=>{

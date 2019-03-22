@@ -1,14 +1,14 @@
 import React from 'react'
-import styled from 'styled-components'
+// import styled from 'styled-components'
 
 function Stuff(props){
     return(
         <div>
             <input
                 type="text"
-                name="name"
+                name="title"
                 onChange={(e)=>props.handleChange(props.stuff,e)}
-                onMouseOut={(e)=>props.updatedStuff(props.stuff)}
+                onMouseOut={(e)=>props.updateStuff(props.stuff,e)}
                 value={props.stuff.title}
                 />
                 <textarea
@@ -16,7 +16,7 @@ function Stuff(props){
                     cols="30"
                     rows="10"
                     onChange={(e)=> props.handleChange(props.idea, e)}
-                    onMouseOut={(e)=>props.handleChange(props.idea, e)}
+                    onMouseOut={(e)=>props.updateStuff(props.idea, e)}
                     value={props.stuff.description}
                     />
                     <button

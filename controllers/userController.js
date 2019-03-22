@@ -62,8 +62,8 @@ router.patch('/:userId/stuff/:stuffId', (req, res) => {
     User.findById(req.params.userId).then(user => {
         const update = req.body.stuff
         const stuff = user.myStuff.id(req.params.stuffId)
-        if (update.name) {
-            stuff.name = update.name
+        if (update.title) {
+            stuff.title = update.title
         }
         if (update.description) {
             stuff.description = update.description

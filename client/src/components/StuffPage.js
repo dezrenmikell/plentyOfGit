@@ -29,17 +29,17 @@ class StuffPage extends Component{
 
     createStuff=()=>{
         const userId = this.props.match.params.userId
-        axios.post(`/api/users/${userId}/stuff`).then(res=>{
-            const newStuff = [...this.state.stuffs]
-            newStuff.unshift(res.data)
-            this.setState({stuffs: newStuff})
+        axios.post(`/api/users/${userId}/stuffs`).then(res=>{
+            const newStuffs = [...this.state.stuffs]
+            newStuffs.unshift(res.data)
+            this.setState({stuffs: newStuffs})
         })
     }
 
     deleteStuff=(stuff)=>{
         const userId = this.props.match.params.userId
         const stuffId = stuff._id
-        axios.delete(`/api/users/${userId}/stuff/${stuffId}`)
+        axios.delete(`/api/users/${userId}/stuffs/${stuffId}`)
         .then(res=>{
             this.setState({stuffs: res.data})
         })
@@ -47,9 +47,9 @@ class StuffPage extends Component{
 
     handleChange=(stuff, event)=>{
         console.log('HANDLE CHANGE')
-        const newStuff = [...this.state.stuffs]
+        const newStuffs = [...this.state.stuffs]
 
-        const stuffs = newStuff.map((savedStuff)=>{
+        const stuffs = newStuffs.map((savedStuff)=>{
             if(savedStuff._id===stuff._id){
                 savedStuff[event.target.name]=event.target.value
             }
@@ -60,7 +60,7 @@ class StuffPage extends Component{
 
     updateStuff=(stuff, e)=>{
         const userId = this.props.match.params.userId
-        axios.patch(`/api/users/${userId}/stuff/${stuff._id}`, {stuff}).then(res =>{
+        axios.patch(`/api/users/${userId}/stuffs/${stuff._id}`, {stuff}).then(res =>{
             this.setState({stuffs: res.data.stuffs})
         })
     }

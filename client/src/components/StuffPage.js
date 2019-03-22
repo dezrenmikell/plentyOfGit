@@ -9,14 +9,14 @@ class StuffPage extends Component{
         user: {
             userName:""
         },
-        myStuff:[]
+       stuffs:[]
     }
     componentDidMount=()=>{
         if (this.props.match.params){
             axios.get(`/api/users/${this.props.match.params.userId}`)
             .then(res=>{
                 this.setState({
-                    myStuff: res.data.myStuff,
+                    stuffs: res.data.stuffs,
                     user:{
                         _id:res.data._id,
                         userName: res.data.userName
@@ -30,9 +30,9 @@ class StuffPage extends Component{
     createStuff=()=>{
         const userId = this.props.match.params.userId
         axios.post(`/api/users/${userId}/stuff`).then(res=>{
-            const newStuff = [...this.state.myStuff]
+            const newStuff = [...this.state.stuffs]
             newStuff.unshift(res.data)
-            this.setState({myStuff: newStuff})
+            this.setState({stuffs: newStuff})
         })
     }
 
@@ -41,27 +41,27 @@ class StuffPage extends Component{
         const stuffId = stuff._id
         axios.delete(`/api/users/${userId}/stuff/${stuffId}`)
         .then(res=>{
-            this.setState({myStuff: res.data})
+            this.setState({stuffs: res.data})
         })
     }
 
     handleChange=(stuff, event)=>{
         console.log('HANDLE CHANGE')
-        const newStuff = [...this.state.myStuff]
+        const newStuff = [...this.state.stuffs]
 
-        const myStuff = newStuff.map((savedStuff)=>{
+        const stuffs = newStuff.map((savedStuff)=>{
             if(savedStuff._id===stuff._id){
                 savedStuff[event.target.name]=event.target.value
             }
             return savedStuff
         })
-        this.setState({myStuff: myStuff})
+        this.setState({stuffs: stuffs})
     }
 
     updateStuff=(stuff, e)=>{
         const userId = this.props.match.params.userId
         axios.patch(`/api/users/${userId}/stuff/${stuff._id}`, {stuff}).then(res =>{
-            this.setState({myStuff: res.data.myStuff})
+            this.setState({stuffs: res.data.stuffs})
         })
     }
 
@@ -77,7 +77,7 @@ class StuffPage extends Component{
 
                     <div>
                         {
-                            this.state.myStuff.map(stuff=>{
+                            this.state.stuffs.map(stuff=>{
                                 return(
                                     <div>
                                         <Stuff

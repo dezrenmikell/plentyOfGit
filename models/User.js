@@ -6,7 +6,7 @@ const User = new Schema({
     title: String,
     userName: String,
     password: String,
-    myStuff:[
+    stuffs:[
         {
             type: Schema.Types.ObjectId,
             ref: "Stuff"

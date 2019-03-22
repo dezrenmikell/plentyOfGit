@@ -25,7 +25,7 @@ User.deleteMany()
             title: "Tree",
             userName: "tree_login",
             password: "treepassword",
-            myStuff: [car,house]
+            stuffs: [car,house]
 
         })
     })
@@ -35,13 +35,13 @@ User.deleteMany()
             title: "Paint and Sip",
             description: "An Interactive Paint and Sip event with Poetry",
         }).then(stuff => {
-            tree.myStuff.push(stuff)
+            tree.stuffs.push(stuff)
          })
         const stuff2Promise = Stuff.create({
             title: 'Day Party',
             description: 'A party to promote Poetry Pins',
         }).then(stuff=>{
-            tree.myStuff.push(stuff)
+            tree.stuffs.push(stuff)
         })
         return Promise.all([stuff1Promise, stuff2Promise]).then(()=> {
             tree.save()

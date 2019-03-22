@@ -28,16 +28,16 @@ router.get('/:userId', (req, res) => {
     User
     .findById(req.params.userId)
     .then(user => {
-        user.myStuff= user.myStuff.reverse()
+        user.stuffs= user.stuffs.reverse()
         res.json(user)
     })
     .catch((err) => console.log(err))
 })
 
-router.post('/:userId/stuff', (req, res) => {
+router.post('/:userId/stuffs', (req, res) => {
     User.findById(req.params.userId).then(user => {
         const newStuff = new Stuff({})
-        user.myStuff.push(newStuff)
+        user.stuffs.push(newStuff)
 
         user.save().then((user) => {
             res.json(newStuff)
@@ -45,23 +45,23 @@ router.post('/:userId/stuff', (req, res) => {
     })
 })
 
-router.delete('/:userId/stuff/:stuffId', (req, res) => {
+router.delete('/:userId/stuffs/:stuffId', (req, res) => {
     User.findById(req.params.userId).then(user => {
-        const filteredStuff = user.myStuff.filter(stuff => stuff._id.toString() !== req.params.stuffId)
+        const filteredStuff = user.stuffs.filter(stuff => stuff._id.toString() !== req.params.stuffId)
 
-        user.myStuff = filteredStuff
+        user.stuffs = filteredStuff
 
         user.save().then(user => {
-            user.myStuff = user.myStuff.reverse()
-            res.json(user.myStuff)
+            user.stuffs = user.stuffs.reverse()
+            res.json(user.stuffs)
         })
     })
 })
 
-router.patch('/:userId/stuff/:stuffId', (req, res) => {
+router.patch('/:userId/stuffs/:stuffId', (req, res) => {
     User.findById(req.params.userId).then(user => {
         const update = req.body.stuff
-        const stuff = user.myStuff.id(req.params.stuffId)
+        const stuff = user.stuffs.id(req.params.stuffId)
         if (update.title) {
             stuff.title = update.title
         }
@@ -70,7 +70,7 @@ router.patch('/:userId/stuff/:stuffId', (req, res) => {
         }
 
         user.save().then((user) => {
-            user.myStuff = user.myStuff.reverse()
+            user.stuffs = user.stuffs.reverse()
             res.json(user)
         })
     })

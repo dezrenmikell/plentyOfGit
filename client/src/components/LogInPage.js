@@ -44,7 +44,7 @@ class LogInPage extends Component {
     
     render() {
         if(this.state.redirectToHome === true) {
-            return (<Redirect to={`/users/${this.state.createdUser._id}`} />)
+            return (<Redirect to={`/user/${this.state.createdUser._id}`} />)
         }
 
         return (

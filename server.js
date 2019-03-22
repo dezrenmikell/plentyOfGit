@@ -1,7 +1,6 @@
 const express = require('express')
 const logger = require('morgan')
 const app = express()
-const routes = require('./routes/index')
 const userController = require('./controllers/userController')
 
 app.use(logger('dev'))

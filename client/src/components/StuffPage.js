@@ -1,8 +1,13 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-// import styled from 'styled-components'
+import styled from 'styled-components'
 import Stuff from './Stuff'
 import {Link} from 'react-router-dom'
+
+
+const StyledLink = styled(Link)`
+    margin: 5px 5px;
+`
 
 class StuffPage extends Component{
     state={
@@ -68,8 +73,10 @@ class StuffPage extends Component{
     render(){
         return (
             <div>
-                <Link to="/">Home</Link>
-                <Link to='/api/users'>Local API</Link>
+                
+                <StyledLink to="/">Home</StyledLink>
+                <StyledLink to='/api/users'>Local API</StyledLink>
+                
                 <h1>Stuff Page</h1>
                 <button
                     onClick={this.createStuff}

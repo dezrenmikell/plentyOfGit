@@ -1,22 +1,4 @@
-const mongoose = require('../db/connection');
-const Schema = mongoose.Schema
+const { StuffSchema } = require('../db/schema.js')
+const mongoose = require('../db/connection.js')
 
-const Stuff = new Schema({
-    title: {
-        type: String,
-        default: 'New Name'
-    },
-
-    description: {
-        type: String,
-        default: 'New Description'
-    },
-    created:{
-        type: Date,
-        default: new Date()
-    },
-    likers:[],
-    category:[]
-})
-
-module.exports = mongoose.model('Stuff',Stuff)
+module.exports = mongoose.model('Idea', StuffSchema)

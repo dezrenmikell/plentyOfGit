@@ -5,45 +5,21 @@ mongoose.connect(process.env.MONGODB_URI)
 const User = require('../models/User')
 const Stuff = require('../models/Stuff')
 
-const car = new Stuff({
-    title: "car",
-    description:"vroom vroom"
-
+const mars = new Stuff({
+  title: 'Fly to Mars',
+  description: "Earth isn't Red enough. Let's move to a new planet"
 })
-const house = new Stuff({
-    title: "house",
-    description: "rooms"
+const tesla = new Stuff({
+  title: 'Build a Car',
+  description: "Gas is too expensive. I'm gonna build a car that doesn't need gas"
+})
+const elon = new User({
+  userName: 'elon_musk',
+  password: 'spaceiscool',
+  stuffs: [mars, tesla]
 })
 
-User.deleteMany()
-    .then(()=>{
-        return Stuff.deleteMany()
-    })
-//create first User(planner)    
-    .then(()=>{
-        return User.create({
-            title: "Tree",
-            userName: "tree_login",
-            password: "treepassword",
-            stuffs: [car,house]
-
-        })
-    })
-//create events for the first user ()   
-    .then(tree=>{
-        const stuff1Promise = Stuff.create({
-            title: "Paint and Sip",
-            description: "An Interactive Paint and Sip event with Poetry",
-        }).then(stuff => {
-            tree.stuffs.push(stuff)
-         })
-        const stuff2Promise = Stuff.create({
-            title: 'Day Party',
-            description: 'A party to promote Poetry Pins',
-        }).then(stuff=>{
-            tree.stuffs.push(stuff)
-        })
-        return Promise.all([stuff1Promise, stuff2Promise]).then(()=> {
-            tree.save()
-        })
-    })
+User.remove({})
+  .then(() => elon.save())
+  .then(() => console.log('Successful Save'))
+  .then(() => mongoose.connection.close())

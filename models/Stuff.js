@@ -6,7 +6,7 @@ const Stuff = new Schema({
         type: String,
         default: 'New Name'
     },
-    stuffId:  Number,
+
     description: {
         type: String,
         default: 'New Description'

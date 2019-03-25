@@ -6,19 +6,37 @@ const CoolNav = styled.div`
     background: cadetblue;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    border-radius: 10px;
+    border: 4px solid black;
+    height: 150px;
+    margin: 0 auto;
+    h1,h3{
+        text-align: center;
+        justify-content: center;
+        align-items:center;
+        
+    }
+   
 `
-const NavLink = styled(Link)`
-    background: cadetblue;
-    display: block;
+const StyledLink = styled(Link)` 
+    background: silver;
+    border: 2px solid black;
+    border-radius: 8px;
+    width: 100px;
+    text-align: center;
+    
+
 `
+
+
 
 class Navbar extends Component {
     render() {
         return (
             <div>
-               <NavLink to="/">Home</NavLink> 
+               
             <CoolNav>
+                <StyledLink to="/">Home</StyledLink> 
                <h1>Plenty of Git</h1>
                <h3>HOME TO BOTH NERDS AS HORDERS</h3> 
             </CoolNav>

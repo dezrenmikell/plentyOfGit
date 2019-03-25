@@ -6,9 +6,41 @@ import {Link} from 'react-router-dom'
 
 
 const StyledLink = styled(Link)`
-    margin: 5px 5px;
-`
+margin: 0 auto;   
+    background: orange;
+    border: 2px solid black;
+    border-radius: 10px;
+    
 
+`
+const PageWrapper=styled.div`
+        background: silver;
+        border: 4px solid black;
+
+        border-radius: 10px;
+    h2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: cadetblue;
+        border: 4px solid black
+        border-radius: 30px;
+
+    }
+    
+`
+const NewButton=styled.button`
+    background orange;
+    border-radius: 30px;
+    font-weight: bold;
+    text-align: center;
+    border: 4px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+`
 class StuffPage extends Component{
     state={
         user: {
@@ -72,15 +104,15 @@ class StuffPage extends Component{
 
     render(){
         return (
-            <div>
+            <PageWrapper>
                 
-                <StyledLink to="/">Home</StyledLink>
-                <StyledLink to='/api/users'>Local API</StyledLink>
+                <StyledLink to="/login">Change User</StyledLink>
                 
-                <h1>Stuff Page</h1>
-                <button
+                
+                <h2>Look At All Our Stuff!</h2>
+                <NewButton
                     onClick={this.createStuff}
-                    > New Stuff</button>
+                    > +NEW STUFF</NewButton>
 
                     <div>
                         {
@@ -99,7 +131,7 @@ class StuffPage extends Component{
                             })
                         }
                     </div>
-            </div>
+            </PageWrapper>
         )
     }
 }

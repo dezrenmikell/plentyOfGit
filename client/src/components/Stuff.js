@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const StuffWrapper = styled.div`
     display: flex;
@@ -67,31 +67,29 @@ const StuffWrapper = styled.div`
         
     }
 
-`
+`;
 
-function Stuff(props){
-    return(
-        <StuffWrapper>
-            <input
-                type="text"
-                name="title"
-                onChange={(e)=>props.handleChange(props.stuff,e)}
-                onMouseOut={(e)=>props.updateStuff(props.stuff,e)}
-                value={props.stuff.title}
-                />
-                <textarea
-                    name="description"
-                    cols="30"
-                    rows="10"
-                    onChange={(e)=> props.handleChange(props.stuff, e)}
-                    onMouseOut={(e)=>props.updateStuff(props.stuff, e)}
-                    value={props.stuff.description}
-                    />
-                    <button
-                        onClick={()=> props.deleteStuff(props.stuff)}
-                        >DELETE</button>
-        </StuffWrapper>
-    )
+function Stuff(props) {
+  return (
+    <StuffWrapper>
+      <input
+        type="text"
+        name="title"
+        onChange={e => props.handleChange(props.stuff, e)}
+        onMouseOut={e => props.updateStuff(props.stuff, e)}
+        value={props.stuff.title}
+      />
+      <textarea
+        name="description"
+        cols="30"
+        rows="10"
+        onChange={e => props.handleChange(props.stuff, e)}
+        onMouseOut={e => props.updateStuff(props.stuff, e)}
+        value={props.stuff.description}
+      />
+      <button onClick={() => props.deleteStuff(props.stuff)}>DELETE</button>
+    </StuffWrapper>
+  );
 }
 
-export default Stuff
+export default Stuff;

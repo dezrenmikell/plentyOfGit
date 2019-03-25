@@ -5,6 +5,7 @@ import HomePage from './components/HomePage'
 import LogInPage from './components/LogInPage'
 import StuffPage from './components/StuffPage';
 import Navbar from './components/Navbar'
+import MoviePage from './components/RandomMovie'
 
 class App extends Component {
   render() {

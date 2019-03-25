@@ -109,7 +109,7 @@ class StuffPage extends Component {
         <div>
           {this.state.stuffs.map(stuff => {
             return (
-              <div>
+              <PageWrapper>
                 <Stuff
                   key={stuff._id}
                   stuff={stuff}
@@ -117,7 +117,7 @@ class StuffPage extends Component {
                   handleChange={this.handleChange}
                   updateStuff={this.updateStuff}
                 />
-              </div>
+              </PageWrapper>
             );
           })}
         </div>

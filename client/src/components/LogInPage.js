@@ -1,6 +1,34 @@
 import React, { Component } from 'react'
 import { Redirect, Link } from 'react-router-dom'
 import axios from 'axios'
+import styled from 'styled-components'
+
+const LogWrapper = styled.div`
+display: flex;
+flex-direction: column;
+margin: 0 auto;
+background: cadetblue;
+border-radius: 20px;
+text-align: center;
+border: 4px solid black;
+
+
+`
+const StyledLink = styled(Link)`
+margin: 0 auto;   
+    
+    border: none;
+    border-radius: 10px;
+    
+
+`
+const CreateButton = styled.button`
+background: silver;
+border: 2px solid black;
+border-radius: 8px;
+width: 100px;
+text-align: center;
+`
 
 class LogInPage extends Component {
     state = {
@@ -48,7 +76,7 @@ class LogInPage extends Component {
         }
 
         return (
-            <div>
+            <LogWrapper>
                 <h1>Log in Page</h1>
                 <Link to="/">Go Back Home</Link>
 
@@ -56,12 +84,14 @@ class LogInPage extends Component {
                 {
                     this.state.users.map((user) => {
                         return (
-                            <Link
+                            <div>
+                            <StyledLink
                                 to={`/user/${user._id}`}
                                 key={user._id}
                             >
                             {user.userName}
-                            </Link>
+                            </StyledLink>
+                            </div>
                         )
                     })
                 }
@@ -86,9 +116,9 @@ class LogInPage extends Component {
                             value={this.state.user.password}
                         />
                     </div>
-                    <button>Create User</button>
+                    <CreateButton>Create User</CreateButton>
                 </form>
-            </div>
+            </LogWrapper>
         )
     }
 }

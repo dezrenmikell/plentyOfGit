@@ -55,7 +55,8 @@ const StuffWrapper = styled.div`
         padding: 15px;
         width 270px;
     }
-    button{
+    `
+    const DeleteButton = styled.button`
         height: 20px;
         margin: 0 auto;
         marigin-top: 20px;
@@ -65,7 +66,7 @@ const StuffWrapper = styled.div`
         font-weight: bold;
 
         
-    }
+    
 
 `;
 
@@ -87,7 +88,7 @@ function Stuff(props) {
         onMouseOut={e => props.updateStuff(props.stuff, e)}
         value={props.stuff.description}
       />
-      <button onClick={() => props.deleteStuff(props.stuff)}>DELETE</button>
+      <DeleteButton onClick={() => props.deleteStuff(props.stuff)}>DELETE</DeleteButton>
     </StuffWrapper>
   );
 }

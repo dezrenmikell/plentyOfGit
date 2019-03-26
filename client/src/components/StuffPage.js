@@ -38,6 +38,19 @@ const NewButton = styled.button`
     justify-content: center;
     
 `;
+const DeleteButton = styled.button`
+height: 20px;
+margin: 0 auto;
+marigin-top: 20px;
+width: 70px;
+border-radius: 10px;
+background: red;
+font-weight: bold;
+
+
+
+
+`;
 class StuffPage extends Component {
   state = {
     user: {
@@ -112,7 +125,7 @@ class StuffPage extends Component {
     return (
       <PageWrapper>
         <StyledLink to="/login">Change User</StyledLink>
-        <button onClick={()=>this.deleteUser(this.state.user.userId)}>deleteUser</button>
+        <DeleteButton onClick={()=>this.deleteUser(this.state.user.userId)}>deleteUser</DeleteButton>
         <h2>Look At All Our Stuff!</h2>
         <NewButton onClick={this.createStuff}> +NEW STUFF</NewButton>
 

@@ -41,7 +41,8 @@ const NewButton = styled.button`
 class StuffPage extends Component {
   state = {
     user: {
-      userName: ""
+      userName: "",
+      userId:"",
     },
     stuffs: []
   };
@@ -52,7 +53,8 @@ class StuffPage extends Component {
           stuffs: res.data.stuffs,
           user: {
             _id: res.data._id,
-            userName: res.data.userName
+            userName: res.data.userName,
+            userId: res.data.userId
           }
         });
       });
@@ -75,6 +77,14 @@ class StuffPage extends Component {
       this.setState({ stuffs: res.data });
     });
   };
+  deleteUser=()=>{
+    const userId=this.props.match.params.userId
+    axios.delete(`/api/users/${userId}`)
+    .then(()=>{
+      this.props.history.goBack()
+    })
+    
+  }
 
   handleChange = (stuff, event) => {
     console.log("HANDLE CHANGE");
@@ -102,7 +112,7 @@ class StuffPage extends Component {
     return (
       <PageWrapper>
         <StyledLink to="/login">Change User</StyledLink>
-
+        <button onClick={()=>this.deleteUser(this.state.user.userId)}>deleteUser</button>
         <h2>Look At All Our Stuff!</h2>
         <NewButton onClick={this.createStuff}> +NEW STUFF</NewButton>
 

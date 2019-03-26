@@ -32,6 +32,16 @@ router.get("/:userId", (req, res) => {
     .catch(err => console.log(err));
 });
 
+router.delete("/:userId", (req, res) => {
+  User.findByIdAndRemove(req.params.userId).then(user => {
+    
+   
+    user.save()
+      res.json('200 status');
+   
+  });
+});
+
 router.post("/:userId/stuffs", (req, res) => {
   User.findById(req.params.userId).then(user => {
     const newStuff = new Stuff({});

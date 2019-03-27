@@ -32,7 +32,7 @@ class Navbar extends Component {
         <CoolNav>
           <StyledLink to="/">Home</StyledLink>
           <h1>Plenty of Git</h1>
-          <h3>HOME TO BOTH NERDS AND HORDERS</h3>
+          <h3>It's like Craigslist, but with ALOT more stuff</h3>
           <StyledLink to="/links">Other Stuff</StyledLink>
         </CoolNav>
       </div>

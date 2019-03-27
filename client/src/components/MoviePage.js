@@ -29,6 +29,7 @@ class MoviePage extends Component {
         <div key={index}>
         
         <img src={movie.show.image.medium}/>
+        <p>{movie.show.name}</p>
         </div>
     ));
     return (

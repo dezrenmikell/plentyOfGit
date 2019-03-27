@@ -64,11 +64,11 @@ class LogInPage extends Component {
     e.preventDefault();
     this.createUser();
   };
-  deleteUser=()=>{
-    const userId=this.props.match.params.userId
-    axios.delete(`api/user/${userId}`)
-    this.props.history.goBack()
-  }
+  deleteUser = () => {
+    const userId = this.props.match.params.userId;
+    axios.delete(`api/user/${userId}`);
+    this.props.history.goBack();
+  };
 
   render() {
     if (this.state.redirectToHome === true) {

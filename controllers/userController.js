@@ -34,11 +34,8 @@ router.get("/:userId", (req, res) => {
 
 router.delete("/:userId", (req, res) => {
   User.findByIdAndRemove(req.params.userId).then(user => {
-    
-   
-    user.save()
-      res.json('200 status');
-   
+    user.save();
+    res.json("200 status");
   });
 });
 

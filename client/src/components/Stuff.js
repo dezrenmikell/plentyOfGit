@@ -55,19 +55,15 @@ const StuffWrapper = styled.div`
         padding: 15px;
         width 270px;
     }
-    `
-    const DeleteButton = styled.button`
-        height: 20px;
-        margin: 0 auto;
-        marigin-top: 20px;
-        width: 70px;
-        border-radius: 10px;
-        background: red;
-        font-weight: bold;
-
-        
-    
-
+    `;
+const DeleteButton = styled.button`
+  height: 20px;
+  margin: 0 auto;
+  marigin-top: 20px;
+  width: 70px;
+  border-radius: 10px;
+  background: red;
+  font-weight: bold;
 `;
 
 function Stuff(props) {
@@ -88,7 +84,9 @@ function Stuff(props) {
         onMouseOut={e => props.updateStuff(props.stuff, e)}
         value={props.stuff.description}
       />
-      <DeleteButton onClick={() => props.deleteStuff(props.stuff)}>DELETE</DeleteButton>
+      <DeleteButton onClick={() => props.deleteStuff(props.stuff)}>
+        DELETE
+      </DeleteButton>
     </StuffWrapper>
   );
 }

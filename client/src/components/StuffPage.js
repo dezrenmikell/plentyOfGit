@@ -39,23 +39,19 @@ const NewButton = styled.button`
     
 `;
 const DeleteButton = styled.button`
-height: 20px;
-margin: 0 auto;
-marigin-top: 20px;
-width: 70px;
-border-radius: 10px;
-background: red;
-font-weight: bold;
-
-
-
-
+  height: 20px;
+  margin: 0 auto;
+  marigin-top: 20px;
+  width: 70px;
+  border-radius: 10px;
+  background: red;
+  font-weight: bold;
 `;
 class StuffPage extends Component {
   state = {
     user: {
       userName: "",
-      userId:"",
+      userId: ""
     },
     stuffs: []
   };
@@ -90,14 +86,12 @@ class StuffPage extends Component {
       this.setState({ stuffs: res.data });
     });
   };
-  deleteUser=()=>{
-    const userId=this.props.match.params.userId
-    axios.delete(`/api/users/${userId}`)
-    .then(()=>{
-      this.props.history.goBack()
-    })
-    
-  }
+  deleteUser = () => {
+    const userId = this.props.match.params.userId;
+    axios.delete(`/api/users/${userId}`).then(() => {
+      this.props.history.goBack();
+    });
+  };
 
   handleChange = (stuff, event) => {
     console.log("HANDLE CHANGE");
@@ -125,7 +119,9 @@ class StuffPage extends Component {
     return (
       <PageWrapper>
         <StyledLink to="/login">Change User</StyledLink>
-        <DeleteButton onClick={()=>this.deleteUser(this.state.user.userId)}>deleteUser</DeleteButton>
+        <DeleteButton onClick={() => this.deleteUser(this.state.user.userId)}>
+          deleteUser
+        </DeleteButton>
         <h2>Look At All Our Stuff!</h2>
         <NewButton onClick={this.createStuff}> +NEW STUFF</NewButton>
 

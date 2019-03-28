@@ -17,7 +17,7 @@ const StyledLink = styled(Link)`
   background: silver;
   border: 2px solid black;
   border-radius: 8px;
-  width: 100px;
+  width: 120px;
   text-align: center;
   display: flex;
   justify-content: center;

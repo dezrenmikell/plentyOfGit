@@ -94,7 +94,7 @@ class StuffPage extends Component {
   };
 
   handleChange = (stuff, event) => {
-    console.log("HANDLE CHANGE");
+  
     const newStuffs = [...this.state.stuffs];
 
     const stuffs = newStuffs.map(savedStuff => {

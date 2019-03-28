@@ -16,9 +16,7 @@ class MoviePage extends Component {
       .then(response => {
         const movies = response.data;
         this.setState({ savedMovies: movies });
-        console.log(movies[1].show.name);
-        console.log(movies[1].show.image.medium);
-        
+       
       })
       .catch(err => {
         console.log("you messed up!", err);

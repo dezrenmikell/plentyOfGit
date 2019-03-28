@@ -8,13 +8,14 @@ const CoolNav = styled.div`
   flex-direction: column;
   border-radius: 10px;
   border: 4px solid black;
-  height: 150px;
+  height: 190px;
   margin: 0 auto;
   h1,
   h3 {
     text-align: center;
-    justify-content: center;
+
     align-items: center;
+    padding: 0;
   }
 `;
 const StyledLink = styled(Link)`
@@ -25,15 +26,18 @@ const StyledLink = styled(Link)`
   text-align: center;
 `;
 
+
+
 class Navbar extends Component {
   render() {
     return (
       <div>
         <CoolNav>
           <StyledLink to="/">Home</StyledLink>
+          <StyledLink to="/links">Other Stuff</StyledLink>
           <h1>Plenty of Git</h1>
           <h3>It's like Craigslist, but with ALOT more stuff</h3>
-          <StyledLink to="/links">Other Stuff</StyledLink>
+          
         </CoolNav>
       </div>
     );

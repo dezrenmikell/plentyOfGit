@@ -49,7 +49,6 @@ class LogInPage extends Component {
 
   createUser = () => {
     axios.post("/api/users", { user: this.state.user }).then(res => {
-      console.log(res.data);
       this.setState({ redirectToHome: true, createdUser: res.data });
     });
   };

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import SavedGif from "./SavedGif";
-import RandomGif from './RandomGif';
-import styled from 'styled-components'
+import RandomGif from "./RandomGif";
+import styled from "styled-components";
 
 const PageWrapper = styled.div`
 display: flex;
@@ -31,15 +31,15 @@ border-radius: 50px;
 `;
 
 class GifPage extends Component {
-    render() {
-        return (
-            <PageWrapper>
+  render() {
+    return (
+      <PageWrapper>
         <h1>Gif Page</h1>
-        <RandomGif/>
-        <SavedGif/>
-            </PageWrapper>
-        );
-    }
+        <RandomGif />
+        <SavedGif />
+      </PageWrapper>
+    );
+  }
 }
 
 export default GifPage;

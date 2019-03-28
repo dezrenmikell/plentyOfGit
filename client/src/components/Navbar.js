@@ -26,8 +26,6 @@ const StyledLink = styled(Link)`
   text-align: center;
 `;
 
-
-
 class Navbar extends Component {
   render() {
     return (
@@ -37,7 +35,6 @@ class Navbar extends Component {
           <StyledLink to="/links">Other Stuff</StyledLink>
           <h1>Plenty of Git</h1>
           <h3>It's like Craigslist, but with ALOT more stuff</h3>
-          
         </CoolNav>
       </div>
     );

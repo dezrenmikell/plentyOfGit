@@ -94,7 +94,6 @@ class StuffPage extends Component {
   };
 
   handleChange = (stuff, event) => {
-  
     const newStuffs = [...this.state.stuffs];
 
     const stuffs = newStuffs.map(savedStuff => {

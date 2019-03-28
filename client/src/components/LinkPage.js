@@ -38,20 +38,16 @@ const StyledLink = styled(Link)`
   align-items: center;
 `;
 
-
 class LinkPage extends Component {
   render() {
     return (
-      
-        <PageWrapper>
-          <h1> Check Out Other People's Stuff!</h1>
-          <h3> Movies Page</h3>
-          <StyledLink to="/movies">Movies</StyledLink>
-          <h3> Gif Page</h3>
-          <StyledLink to="/gifs">Gifs</StyledLink>
-          
-        </PageWrapper>
-      
+      <PageWrapper>
+        <h1> Check Out Other People's Stuff!</h1>
+        <h3> Movies Page</h3>
+        <StyledLink to="/movies">Movies</StyledLink>
+        <h3> Gif Page</h3>
+        <StyledLink to="/gifs">Gifs</StyledLink>
+      </PageWrapper>
     );
   }
 }

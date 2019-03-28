@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const PageWrapper = styled.div`
 display: flex;
@@ -27,7 +27,6 @@ border-radius: 50px;
     
 `;
 
-
 class MoviePage extends Component {
   state = {
     savedMovies: []
@@ -43,27 +42,24 @@ class MoviePage extends Component {
       .then(response => {
         const movies = response.data;
         this.setState({ savedMovies: movies });
-       
       })
       .catch(err => {
         console.log("you messed up!", err);
       });
   };
   render() {
-    const savedMovies = this.state.savedMovies.map((movie, index)=>(
-        <div key={index}>
-        
-        <img src={movie.show.image.medium} alt="MISSING"/>
+    const savedMovies = this.state.savedMovies.map((movie, index) => (
+      <div key={index}>
+        <img src={movie.show.image.medium} alt="MISSING" />
         <h3>{movie.show.name}</h3>
-        </div>
+      </div>
     ));
     return (
       <div>
         <PageWrapper>
           <h1>OTHER PEOPLE'S MOVIES</h1>
-          <div >{savedMovies}</div>
-          </PageWrapper>
-        
+          <div>{savedMovies}</div>
+        </PageWrapper>
       </div>
     );
   }

@@ -11,11 +11,15 @@ This is an off-shoot of Craigslist. The goal it for it to be a collection of ran
   * React
   * Mongodb
   * Morgan
-  * Materialize
   * React Router Dom
   * Styld Components
   * Axios
 
+## Difficulties Experienced
+  * Leaving charger in class over the weekend
+  * Computer crashing for half a day
+  * Naming variables and object keys, reserved names
+  * Functionality due to working in the client folder instead of root
 
 ## Version 2+
   * Have a functional login

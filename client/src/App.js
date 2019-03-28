@@ -7,6 +7,7 @@ import StuffPage from './components/StuffPage'
 import Navbar from './components/Navbar'
 import MoviePage from './components/MoviePage'
 import LinkPage from './components/LinkPage';
+import GifPage from './components/GifPage';
 
 class App extends Component {
   render() {
@@ -21,6 +22,8 @@ class App extends Component {
          <Route exact path='/user/:userId' component={StuffPage}/>
          <Route exact path='/movies' component={MoviePage}/>
          <Route exact path='/links' component={LinkPage}/>
+         <Route exact path='/gifs' component={GifPage}/>
+         
        </Switch>
      </Router>
     );

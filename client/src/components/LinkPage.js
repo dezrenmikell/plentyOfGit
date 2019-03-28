@@ -17,6 +17,8 @@ class LinkPage extends Component {
         <div>
           <h1> Movies Page</h1>
           <StyledLink to="/movies">Movies</StyledLink>
+          <h1> Gif Page</h1>
+          <StyledLink to="/gifs">Gifs</StyledLink>
           
         </div>
       </div>

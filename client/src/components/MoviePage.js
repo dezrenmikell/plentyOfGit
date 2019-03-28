@@ -26,14 +26,14 @@ class MoviePage extends Component {
     const savedMovies = this.state.savedMovies.map((movie, index)=>(
         <div key={index}>
         
-        <img src={movie.show.image.medium}/>
+        <img src={movie.show.image.medium} alt="MISSING"/>
         <p>{movie.show.name}</p>
         </div>
     ));
     return (
       <div>
         <div className="savedMoviesContainer">
-          <h3>movies</h3>
+          <h3>Movies</h3>
           <div >{savedMovies}</div>
         </div>
       </div>

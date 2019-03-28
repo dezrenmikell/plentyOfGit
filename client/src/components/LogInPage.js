@@ -14,10 +14,15 @@ const LogWrapper = styled.div`
 `;
 const StyledLink = styled(Link)`
   margin: 0 auto;
-
-  border: none;
-  border-radius: 10px;
+  background: silver;
+  border: 2px solid black;
+  border-radius: 8px;
+  width: 100px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 `;
+
 const CreateButton = styled.button`
   background: silver;
   border: 2px solid black;
@@ -77,7 +82,7 @@ class LogInPage extends Component {
     return (
       <LogWrapper>
         <h1>Log in Page</h1>
-        <Link to="/">Go Back Home</Link>
+        <StyledLink to="/">Go Back Home</StyledLink>
 
         <h2>Select a user to log in</h2>
         {this.state.users.map(user => {

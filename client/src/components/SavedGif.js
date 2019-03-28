@@ -2,6 +2,34 @@ import React, { Component } from 'react';
 // 1. import axios
 import axios from 'axios'
 import Thumbs from './Thumbs'
+import styled from 'styled-components'
+
+const PageWrapper = styled.div`
+display: flex;
+flex-direction: column;
+border: 7px solid cadetblue;
+margin: 0 auto;
+background: silver;
+align-items: center;
+justify-content: center;
+
+margin-top: 30px;
+
+border-radius: 50px;
+        align-items: center;
+        justify-content: center;
+    h1,h3{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: cadetblue;
+        border: 2px solid black
+        border-radius: 30px;
+
+    }
+    
+`;
 
 class SavedGif extends Component {
     //2.  create a state where we can store our response
@@ -59,18 +87,18 @@ class SavedGif extends Component {
         const savedGifs = this.state.savedGifs.map((gif, index) => (
             <div className="gif" key={index}>
                 <img src={gif.url} alt="" />
-                <div>Score: +{gif.strangeness}</div>
+                <h3>Score: +{gif.strangeness}</h3>
                 <Thumbs approve={() => this.approve(index)} disapprove={() => this.disapprove(index)}/>
             </div>
         ))
 
         return (
             <div>
-                <div className="savedGifsContainer">
-                    <h3>Previously Saved Gifs</h3>
-                    <div className="savedGifsFlexContainer">
+                <div>
+                    <h1>Previously Saved Gifs</h1>
+                    <PageWrapper>
                         {savedGifs}
-                    </div>
+                    </PageWrapper>
                 </div>
             </div>
         );

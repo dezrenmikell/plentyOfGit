@@ -30,6 +30,11 @@ border-radius: 50px;
     
 `;
 
+const Coolimg = styled.div`
+img{
+width: 245px;
+}`
+
 class SavedGif extends Component {
   state = {
     savedGifs: []
@@ -79,8 +84,8 @@ class SavedGif extends Component {
 
   render() {
     const savedGifs = this.state.savedGifs.map((gif, index) => (
-      <div className="gif" key={index}>
-        <img src={gif.url} alt="" />
+      <div key={index}>
+        <Coolimg><img src={gif.url} alt="" /></Coolimg>
         <h3>Score: +{gif.strangeness}</h3>
         <Thumbs
           approve={() => this.approve(index)}

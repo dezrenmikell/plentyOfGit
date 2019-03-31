@@ -3,6 +3,10 @@
 This is an off-shoot of Craigslist. The goal it for it to be a collection of random items or "stuff". 
 [Visit Site](https://mighty-woodland-78462.herokuapp.com/)
 
+## WireFrames
+![alt text](https://imgur.com/GlqlDWQ )
+
+
 ## Technologies Used
   * VS Code
   * Sublime Text

@@ -4,7 +4,7 @@ This is an off-shoot of Craigslist. The goal it for it to be a collection of ran
 [Visit Site](https://mighty-woodland-78462.herokuapp.com/)
 
 ## WireFrames
-![alt text](https://imgur.com/GlqlDWQ )
+![image](https://i.imgur.com/GlqlDWQ.png)
 
 
 ## Technologies Used

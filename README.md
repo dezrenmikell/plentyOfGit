@@ -5,6 +5,10 @@ This is an off-shoot of Craigslist. The goal it for it to be a collection of ran
 
 ## WireFrames
 ![image](https://i.imgur.com/GlqlDWQ.png)
+![image](https://i.imgur.com/QytzNdg.png)
+![image](https://i.imgur.com/LZBq0rN.png)
+![image](https://i.imgur.com/K18s7vU.png)
+
 
 
 ## Technologies Used

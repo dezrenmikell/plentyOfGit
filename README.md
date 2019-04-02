@@ -3,6 +3,7 @@
 This is an off-shoot of Craigslist. The goal it for it to be a collection of random items or "stuff". 
 [Visit Site](https://mighty-woodland-78462.herokuapp.com/)
 
+<<<<<<< HEAD
 ## WireFrames
 ![image](https://i.imgur.com/GlqlDWQ.png)
 ![image](https://i.imgur.com/QytzNdg.png)
@@ -11,6 +12,8 @@ This is an off-shoot of Craigslist. The goal it for it to be a collection of ran
 
 
 
+=======
+>>>>>>> parent of 0afb962... testing wireframe input
 ## Technologies Used
   * VS Code
   * Sublime Text

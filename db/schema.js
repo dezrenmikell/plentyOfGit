@@ -1,28 +1,32 @@
-const mongoose = require('./connection.js')
-const Schema = mongoose.Schema
+const mongoose = require("./connection");
+const Schema = mongoose.Schema;
 
-const IdeaSchema = new Schema({
-    title: {
-        type: String,
-        default: 'New Title'
-    },
-    description: {
-        type: String,
-        default: 'New Description'
-    },
-    created: {
-        type: Date,
-        default: new Date()
-    }
-})
+const StuffSchema = new Schema({
+  title: {
+    type: String,
+    default: "New Title"
+  },
+
+  description: {
+    type: String,
+    default: "New Description"
+  },
+  created: {
+    type: Date,
+    default: new Date()
+  },
+  likers: [],
+  category: []
+});
 
 const UserSchema = new Schema({
-    userName: String,
-    password: String,
-    ideas: [IdeaSchema]
-})
-
+  title: String,
+  userName: String,
+  password: String,
+  stuffs: [StuffSchema],
+  posts: [StuffSchema]
+});
 module.exports = {
-    IdeaSchema: IdeaSchema,
-    UserSchema: UserSchema
-}
+  StuffSchema: StuffSchema,
+  UserSchema: UserSchema
+};
